@@ -1,0 +1,10 @@
+## Interface: 11302
+
+## Title: FLeX BG Selector
+
+## Notes: Allows you to select a battleground by BG number.
+
+## Version: 1.0
+## Author: FLeX
+
+FLeX_BG_Selector.lua
