@@ -44,3 +44,16 @@ editBox:SetScript("OnShow", function(self)
     self:SetText("");
     BattlefieldFrameJoinButton:SetText(BATTLEFIELD_JOIN);
 end)
+
+--Prevent bg frame from closing when queueing
+--hacky as fuck, but you gotta do what you gotta do
+local origHideUIPanel = HideUIPanel;
+HideUIPanel = function(frame)
+    local stacktrace = debugstack(2, 1);
+    if stacktrace:find("BattlefieldFrameJoinButton_OnClick")
+    or stacktrace:find("SSPVP.lua") then
+        return;
+    else
+        origHideUIPanel(frame);
+    end
+end
